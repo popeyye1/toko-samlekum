@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Produk - KangGhosting</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #e3eafc);
+      padding: 20px 20px;
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+      color: #4e4376;
+      font-size: 2.5em;
+    }
+    .controls {
+      text-align: center;
+      margin: 20px auto 30px;
+    }
+    .controls input, .controls select {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      width: 200px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      animation: fadeIn 0.8s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .product img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .product h3 {
+      margin: 15px 0 10px;
+      color: #333;
+      font-size: 1.3em;
+    }
+    .product p {
+      margin: 0;
+      color: #555;
+    }
+    .product .category {
+      font-size: 13px;
+      color: #777;
+      margin-top: 5px;
+    }
+    .product .price {
+      color: #d0005c;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    .product .stars {
+      color: gold;
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+    .product .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 24px;
+      background-color: #d0005c;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    .product .btn:hover {
+      background-color: #a80045;
+    }
+    .product .btn.whatsapp {
+      background-color: #25D366;
+      margin-left: 10px;
+    }
+    .product .btn.whatsapp:hover {
+      background-color: #1ebe5d;
+    }
+    
+  footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <h2>🛍️ Katalog Produk KangGhosting</h2>
+
+ 
+  <div class="controls">
+    <input type="text" id="search" placeholder="Cari produk..." onkeyup="filterProduk()" />
+    <select id="filterKategori" onchange="filterProduk()">
+      <option value="">Semua Kategori</option>
+      <option value="Fashion">Fashion</option>
+      <option value="Aksesoris">Aksesoris</option>
+    </select>
+  </div>
+
+  <div class="product-grid" id="produkContainer">
+    <div class="product" data-kategori="Fashion" data-nama="Kaos Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Kaos+Ghosting" alt="Kaos Ghosting" />
+      <h3>Kaos Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 99.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Kaos+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Aksesoris" data-nama="Sticker No Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Sticker+No+Ghosting" alt="Sticker No Reply" />
+      <h3>Sticker No Ghoting</h3>
+      <p class="category">Kategori: Aksesoris</p>
+      <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+      <p class="price">Rp 19.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Sticker+No+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Fashion" data-nama="Jaket Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Jaket+Ghosting" alt="Jaket Ghosting" />
+      <h3>Jaket Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 149.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Jaket+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+  </div>
+
+    <div class="controls">
+  </div>
+
+  <div class="product-grid" id="produkContainer">
+    <div class="product" data-kategori="Fashion" data-nama="Kaos Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Kaos+Ghosting" alt="Kaos Ghosting" />
+      <h3>Kaos Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 99.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Kaos+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Aksesoris" data-nama="Sticker No Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Sticker+No+Ghosting" alt="Sticker No Reply" />
+      <h3>Sticker No Ghoting</h3>
+      <p class="category">Kategori: Aksesoris</p>
+      <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+      <p class="price">Rp 19.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Sticker+No+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Fashion" data-nama="Jaket Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Jaket+Ghosting" alt="Jaket Ghosting" />
+      <h3>Jaket Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 149.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Jaket+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+  </div>
+
+      <div class="controls">
+  </div>
+
+  <div class="product-grid" id="produkContainer">
+    <div class="product" data-kategori="Fashion" data-nama="Kaos Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Kaos+Ghosting" alt="Kaos Ghosting" />
+      <h3>Kaos Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 99.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Kaos+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Aksesoris" data-nama="Sticker No Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Sticker+No+Ghosting" alt="Sticker No Reply" />
+      <h3>Sticker No Ghoting</h3>
+      <p class="category">Kategori: Aksesoris</p>
+      <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+      <p class="price">Rp 19.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Sticker+No+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+
+    <div class="product" data-kategori="Fashion" data-nama="Jaket Ghosting">
+      <img src="https://via.placeholder.com/300x200?text=Jaket+Ghosting" alt="Jaket Ghosting" />
+      <h3>Jaket Ghosting</h3>
+      <p class="category">Kategori: Fashion</p>
+      <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+      <p class="price">Rp 149.000</p>
+      <a href="keranjang.html" class="btn">🛒 Tambah</a>
+      <a href="https://wa.me/6281340957554?text=Halo+saya+mau+beli+Jaket+Ghosting" target="_blank" class="btn whatsapp">📲 WA</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Toko Samlekum. aw aw aw aw</p>>
+  </footer>  
+
+  <script>
+    function filterProduk() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const kategori = document.getElementById("filterKategori").value;
+      const produk = document.querySelectorAll(".product");
+
+      produk.forEach(item => {
+        const nama = item.dataset.nama.toLowerCase();
+        const kat = item.dataset.kategori;
+
+        const cocokNama = nama.includes(input);
+        const cocokKategori = kategori === "" || kategori === kat;
+
+        if (cocokNama && cocokKategori) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
